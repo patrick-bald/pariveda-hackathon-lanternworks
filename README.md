@@ -7,5 +7,3 @@ Built with React,
 
 ## Backend
 Built with FastAPI,
-
-test
