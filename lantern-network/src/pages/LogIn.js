@@ -10,7 +10,7 @@ const LogIn = () => {
            <h2> Log In</h2>
            <TextField label="Username" placeholder="Username"/>
            <TextField label="Password" placeholder="Password" type='password'/>
-           <Button >Log In</Button>
+           <Button>Log In</Button>
            <Button>Sign Up</Button>
         </Paper>
     </Grid>

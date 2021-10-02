@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import {Box} from '@material-ui/core';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import {LogIn} from './pages/Pages';
+
 function App() {
   return (
     <BrowserRouter>
