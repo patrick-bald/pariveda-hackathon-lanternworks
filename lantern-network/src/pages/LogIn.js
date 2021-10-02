@@ -8,7 +8,7 @@ const LogIn = () => {
     <Grid>
         <Paper elevation={10} className="input">
            <h2> Log In</h2>
-           <TextField label="Username" placeholder="Username"/>
+           <TextField label="Email" placeholder="Email"/>
            <TextField label="Password" placeholder="Password" type='password'/>
            <Button >Log In</Button>
            <Button>Sign Up</Button>

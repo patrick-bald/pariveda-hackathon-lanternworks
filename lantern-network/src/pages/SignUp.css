@@ -1,0 +1,14 @@
+.inputSignup {
+    padding: 20px;
+    height: 80vh;
+    width: 230px;
+    margin: 20px auto;
+}
+
+.button {
+    margin: 20px auto;
+}
+
+.form {
+    min-width: 200;
+}
