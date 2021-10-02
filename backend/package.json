@@ -1,0 +1,8 @@
+{
+    "name": "lantern-network-backend",
+    "version": "1.0.0",
+    "author": "Pariveda",
+    "dependencies": {
+        "serverless-python-requirements": "^5.0.1"
+    }
+}
