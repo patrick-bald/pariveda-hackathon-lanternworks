@@ -72,7 +72,8 @@ const mentees = [
     {
         "name" : "test",
         "pronoun" : "they/them",
-        "mentor" : "Cayla S"
+        "mentor" : "Cayla S",
+        "match" : ""
     }
 ]
 
@@ -108,10 +109,7 @@ export default function Admin() {
 
     const handledropDownMentee = (mentor) => {
         let list = [];
-        console.log(mentees)
         for (const mentee of mentees) {
-            console.log(mentee)
-            console.log(mentee[mentor])
             if (mentee['mentor'] === mentor){
                 list.push(mentee);
             }
@@ -166,7 +164,7 @@ export default function Admin() {
                                         <TableHead>
                                             <TableRow>
                                                 <TableCell>Mentee</TableCell>
-                                                <TableCell>Pronoun</TableCell>
+                                                <TableCell>Pronouns</TableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -176,6 +174,7 @@ export default function Admin() {
                                                 (<TableRow key={item.id}>
                                                     <TableCell>{item.name}</TableCell>
                                                     <TableCell>{item.pronoun}</TableCell>
+                                                    {/* { &&<TableCell></TableCell>} */}
                                                 </TableRow>
 
                                                 )
