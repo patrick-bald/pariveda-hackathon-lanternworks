@@ -13,6 +13,7 @@ const Profile = (props) => {
     school: "University of College",
     email: "email@website.com",
     interests: ["hobbies", "activities", "fun", "things", "stuff"],
+    partner: "You",
     image: defaultImage
   }
 
@@ -27,7 +28,7 @@ const Profile = (props) => {
   }
 
   const [profile, setProfile] = useState(mockProfile);
-  const [partner, setPartner] = useState(mockPartner);
+  const [partner, setPartner] = useState(null);
   const [editing, toggleEditing] = useState(false);
 
 
@@ -39,21 +40,37 @@ const Profile = (props) => {
       var response = await axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/user/user-1");      
       var profileFromAPI = response.data;
       
-      var mentee = {};
+      var myProfile = {};
       if(profileFromAPI.type === "mentee") {
         Object.keys(mockProfile).forEach(key => {
-          mentee[key] = profileFromAPI[key];
+          myProfile[key] = profileFromAPI[key];
         });
-      } 
-      console.log(mentee)
-      mentee.image=defaultImage;
-      setProfile(mentee);
+      } else {
+        Object.keys(mockPartner).forEach(key => {
+          myProfile[key] = profileFromAPI[key];
+        });
+      }
+      myProfile.image=defaultImage;
+      setProfile(myProfile);
 
       // TODO: Fetch image from s3
+      response = await axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/user/" + myProfile["partner"]);
+      console.log(myProfile)
+      console.log(response)
+      profileFromAPI = response.data;
 
-
-      //response = axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentor/user-1");
-      //setPartner(response);
+      var myPartner = {};
+      if(profileFromAPI.type === "mentee") {
+        Object.keys(mockProfile).forEach(key => {
+          myPartner[key] = profileFromAPI[key];
+        });
+      } else {
+        Object.keys(mockPartner).forEach(key => {
+          myPartner[key] = profileFromAPI[key];
+        });
+      }
+      myPartner.image=defaultImage;
+      setPartner(myPartner);
       }
 
     fetchData();
@@ -95,7 +112,7 @@ const Profile = (props) => {
 
 
       {/* Partner Info */}
-      {/* TODO: Only render if partner exists */}
+      {partner ? (
       <div className="info-container">
         <div className="info">
           <div>
@@ -106,12 +123,14 @@ const Profile = (props) => {
           <div className="break">
             {partner.type === "mentor" ? (<p>Occupation: {partner.occupation}</p>): (<p>School: {partner.school}</p>)}
             <p>Contact: {partner.email}</p>
+            {partner.type === "mentor" ? (<p>Experience: {partner.experience.join(", ")}</p>) : <p>Interests: {partner.interests.join(", ")}</p>}
           </div>
         </div>
         <div className="info">
           <img className="partner-photo" src={partner.image} alt="<profile_photo>"/>
         </div>
       </div>
+      ) : null}
     </div>
   );
 }
