@@ -80,37 +80,26 @@ This command will pull environment configurations from AWS and place them in a l
 
 ## API Gateway Requests
 
-/user/{userid}
+/user/{userid} 
 - GET -> get user by user Id
 
-/mentors
-- POST -> create new mentor
-```
-{
-    "type": "mentor",
-    "email": "email@website.com",
-    "fullName": "Test User 3",
-    "pronouns": "she/her",
-    "school": "College State University",
-    "experience": ["STEM", "Business"],
-    "mentee": "Mentee Name",
-    "menteeId": "mentee-id"
+/user
+- POST -> create new user (mentor, mentee, admin)
+- {
+    "type": <type>, /mentor/mentee/admin
+    "email": <email>,
+    "fullName": <fullName,
+    "pronouns": <pronouns>,
+    "school": <school>,
+    "experience": [],
+    "mentee": <menteeName>,
+    "menteeId": <menteeId>,
+    "mentor": <mentorName>,
+    "mentorId": <mentorId>
 }
-```
+
+/mentors
 - GET -> get all mentors
 
 /mentees
- - POST -> create new mentee
- ```
-{
-    "type": "mentee",
-    "email": "email@website.com",
-    "fullName": "Test User 3",
-    "pronouns": "she/her",
-    "school": "College State University",
-    "experience": ["STEM", "Business"],
-    "mentor": "Mentor Name",
-    "mentorId": "mentor-id"
-}
-```
  - GET -> get all mentees
