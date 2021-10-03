@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Grid, Paper, TextField, Button, FormControl, MenuItem, Select, InputLabel, Checkbox, ListItemText, Box } from '@material-ui/core';
 import './SignUp.css';
+import axios from 'axios';
 
 
 const SignUp = () => {
@@ -35,10 +36,32 @@ const SignUp = () => {
         }
     }, [selectedImage]);
 
+    
+    const postRequest = async () => {
+
+        axios.get('https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentors').then(res => {
+            console.log(res.data);
+        })
+        
+        // axios.post("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentors", {
+        //     "id": "test-id-8",
+        //     "type": "mentor",
+        //     "firstName": "Cayla",
+        //     "lastName": "Seaman"
+        // })
+        //     .then((response) => {
+        //           console.log(response);
+        //      })
+        //     .catch((err) => {
+        //         console.log(err);
+        //      });
+
+    }
+
 
     const handleChangeStatus = (event) => {
         setStatus(event.target.value);
-        if(event.target.value == "Mentor") {
+        if(event.target.value === "Mentor") {
             setIsMentor(true);
         } else {
             setIsMentor(false);
@@ -137,7 +160,7 @@ const SignUp = () => {
                 <p></p>
                 <TextField label="Password" placeholder="Password" type='password' />
                 <p></p>
-                <Button variant="contained" className="button">Sign Up</Button>
+                <Button variant="contained" className="button" onClick={postRequest}>Sign Up</Button>
             </Paper>
         </Grid>
 
