@@ -85,7 +85,8 @@ This command will pull environment configurations from AWS and place them in a l
 
 /user
 - POST -> create new user (mentor, mentee, admin)
-- {
+```
+{
     "type": <type>, /mentor/mentee/admin
     "email": <email>,
     "fullName": <fullName,
@@ -97,6 +98,7 @@ This command will pull environment configurations from AWS and place them in a l
     "mentor": <mentorName>,
     "mentorId": <mentorId>
 }
+```
 
 /mentors
 - GET -> get all mentors
