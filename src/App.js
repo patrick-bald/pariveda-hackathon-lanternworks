@@ -9,6 +9,8 @@ import {
 } from '@aws-amplify/ui-react';
 // import UserInformationForm from './components/UserInformationForm'; 
 import Admin from './components/Admin'; 
+import Profile from './pages/Profile';
+import Footer from './Footer';
 
 const App = () => {
   Amplify.configure(awsconfig)
@@ -18,8 +20,8 @@ const App = () => {
 		<AmplifySignUp headerText="Sign Up" slot="sign-up" />
 
 		<div>
-			<Admin />
-			<AmplifySignOut />
+			<Profile />
+			<Footer />
 		</div>
 	</AmplifyAuthenticator>
     )
