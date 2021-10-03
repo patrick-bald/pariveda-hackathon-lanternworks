@@ -3,7 +3,7 @@ import './App.css';
 import {Box} from '@material-ui/core';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import {LogIn, SignUp, Profile} from './pages/Pages';
-import Footer from './footer';
+import Footer from './Footer';
 function App() {
   return (
     <BrowserRouter>
