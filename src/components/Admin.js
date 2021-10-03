@@ -7,7 +7,7 @@ import useTable from "../components/useTable";
 // import * as employeeService from "../../services/employeeService";
 // import Controls from "../../components/controls/Controls";
 // import { Search } from "@material-ui/icons";
-
+import axios from 'axios';
 const useStyles = makeStyles(theme => ({
     pageContent: {
         margin: theme.spacing(5),
@@ -36,6 +36,7 @@ const payload = [
         "occupation": "Business",
         "pronouns": "she/her",
         "backgroundCheck": "",
+        "experience": ["Business", "Tech"],
         "training": "",
 
 
@@ -46,6 +47,7 @@ const payload = [
         "occupation": "Business",
         "pronouns": "he/him",
         "backgroundCheck": "Done",
+        "experience": ["Law", "Tech"],
         "training": "Done",
 
     },
@@ -55,6 +57,7 @@ const payload = [
         "occupation": "Tech",
         "pronouns": "he/him",
         "backgroundCheck": "",
+        "experience": ["Business", "Tech"],
         "training": "Done",
 
     },
@@ -64,21 +67,29 @@ const payload = [
         "occupation": "Business",
         "pronouns": "he/him",
         "backgroundCheck": "Done",
+        "experience": ["Business", "Healthcare"],
         "training": "",
 
     }
 ]
 const mentees = [
     {
-        "name" : "test",
+        "name" : "Sam Smith",
         "pronoun" : "they/them",
         "mentor" : "Cayla S",
         "interests" : ["Business"]
        
     },
     {
-        "name" : "test2",
+        "name" : "John Doe",
         "pronoun" : "he/him",
+        "mentor" : "",
+        "interests" : ["Healthcare"]
+       
+    },
+    {
+        "name" : "Jane Doe",
+        "pronoun" : "she/her",
         "mentor" : "",
         "interests" : ["Tech"]
        
@@ -114,17 +125,26 @@ export default function Admin() {
             }
         })
     }
+    const getRequest = async () => {
 
+        // axios.get('https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentees').then(res => {
+        //     console.log(res.data);
+        // })
+       
+
+    }
     const handledropDownMentee = (mentor) => {
         let list = [];
+        getRequest();
         for (const mentee of mentees) {
             if (mentee['mentor'] === mentor['fullName']){
                 list.push(mentee);
             }else if (mentee['mentor'] === ''){
                 for(const interest of mentee['interests']){
-                    console.log(interest)
-                    if (interest === mentor['occupation']){
+                    
+                    if (mentor['experience'].includes(interest)){
                         list.push(mentee);
+                        break;
                     }
                 }
                 
@@ -174,7 +194,7 @@ export default function Admin() {
                             <Collapse in={open} timeout="auto" unmountOnExit>
                                 <Box sx={{ margin: 1 }}>
                                     <Typography variant="h6" gutterBottom component="div">
-                                        History
+                                        Mentees
                                     </Typography>
                                     <Table size="small" >
                                         <TableHead>
