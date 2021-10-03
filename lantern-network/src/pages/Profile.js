@@ -35,16 +35,29 @@ const Profile = (props) => {
 
     async function fetchData() {
 
-      var response = await axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentor/test-id-8");
-      console.log(response);
-      // setProfile(response);
+      // TODO: Call correct user recieved from props
+      var response = await axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/user/user-1");      
+      var profileFromAPI = response.data;
+      
+      var mentee = {};
+      if(profileFromAPI.type === "mentee") {
+        Object.keys(mockProfile).forEach(key => {
+          mentee[key] = profileFromAPI[key];
+        });
+      } 
+      console.log(mentee)
+      mentee.image=defaultImage;
+      setProfile(mentee);
+
       // TODO: Fetch image from s3
-      // response = axios.get()
-      // setPartner(response);
+
+
+      //response = axios.get("https://q61b1ddpui.execute-api.us-east-2.amazonaws.com/beta/mentor/user-1");
+      //setPartner(response);
       }
 
     fetchData();
-  });
+  }, []);
 
   // TODO: Imeplement API call to upload image to s3
   const uploadNewImage = (img) => {
