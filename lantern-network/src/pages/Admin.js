@@ -73,7 +73,15 @@ const mentees = [
         "name" : "test",
         "pronoun" : "they/them",
         "mentor" : "Cayla S",
-        "match" : ""
+        "interests" : ["Business"]
+       
+    },
+    {
+        "name" : "test2",
+        "pronoun" : "he/him",
+        "mentor" : "",
+        "interests" : ["Tech"]
+       
     }
 ]
 
@@ -110,8 +118,16 @@ export default function Admin() {
     const handledropDownMentee = (mentor) => {
         let list = [];
         for (const mentee of mentees) {
-            if (mentee['mentor'] === mentor){
+            if (mentee['mentor'] === mentor['fullName']){
                 list.push(mentee);
+            }else if (mentee['mentor'] === ''){
+                for(const interest of mentee['interests']){
+                    console.log(interest)
+                    if (interest === mentor['occupation']){
+                        list.push(mentee);
+                    }
+                }
+                
             }
         }
         setOpen(!open);
@@ -143,7 +159,7 @@ export default function Admin() {
                             recordsAfterPagingAndSorting().map(item =>
                             (<TableRow key={item.id}>
                                 <TableCell>{item.fullName}</TableCell>
-                                <TableCell onClick={() => handledropDownMentee(item.fullName)}>Click</TableCell>
+                                <TableCell onClick={() => handledropDownMentee(item)}>Click</TableCell>
                                 <TableCell>{item.email}</TableCell>
                                 <TableCell>{item.occupation}</TableCell>
                                 <TableCell>{item.pronouns}</TableCell>
@@ -165,6 +181,7 @@ export default function Admin() {
                                             <TableRow>
                                                 <TableCell>Mentee</TableCell>
                                                 <TableCell>Pronouns</TableCell>
+                                                <TableCell>Match</TableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -174,7 +191,7 @@ export default function Admin() {
                                                 (<TableRow key={item.id}>
                                                     <TableCell>{item.name}</TableCell>
                                                     <TableCell>{item.pronoun}</TableCell>
-                                                    {/* { &&<TableCell></TableCell>} */}
+                                                    { (item.mentor === '') &&<TableCell>Possible Match</TableCell>}
                                                 </TableRow>
 
                                                 )
