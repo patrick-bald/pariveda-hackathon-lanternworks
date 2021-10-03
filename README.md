@@ -85,8 +85,32 @@ This command will pull environment configurations from AWS and place them in a l
 
 /mentors
 - POST -> create new mentor
+```
+{
+    "type": "mentor",
+    "email": "email@website.com",
+    "fullName": "Test User 3",
+    "pronouns": "she/her",
+    "school": "College State University",
+    "experience": ["STEM", "Business"],
+    "mentee": "Mentee Name",
+    "menteeId": "mentee-id"
+}
+```
 - GET -> get all mentors
 
 /mentees
  - POST -> create new mentee
+ ```
+{
+    "type": "mentee",
+    "email": "email@website.com",
+    "fullName": "Test User 3",
+    "pronouns": "she/her",
+    "school": "College State University",
+    "experience": ["STEM", "Business"],
+    "mentor": "Mentor Name",
+    "mentorId": "mentor-id"
+}
+```
  - GET -> get all mentees
