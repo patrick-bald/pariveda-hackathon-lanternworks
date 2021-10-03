@@ -1,6 +1,6 @@
 .inputSignup {
     padding: 20px;
-    height: 80vh;
+    height: auto;
     width: 230px;
     margin: 20px auto;
 }
@@ -10,5 +10,5 @@
 }
 
 .form {
-    min-width: 200;
+    width: 170px;
 }
