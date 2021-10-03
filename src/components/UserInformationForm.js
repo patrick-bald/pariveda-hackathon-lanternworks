@@ -38,7 +38,7 @@ const UserInformationForm = () => {
 
     const handleChangeStatus = (event) => {
         setStatus(event.target.value);
-        if(event.target.value == "Mentor") {
+        if(event.target.value === "Mentor") {
             setIsMentor(true);
         } else {
             setIsMentor(false);
@@ -58,9 +58,8 @@ const UserInformationForm = () => {
     return (
         <Grid>
             <Paper elevation={10} className="inputSignup">
-                <h2> Sign Up</h2>
-
-                <FormControl variant="standard"   >
+                <h2>User Information</h2>
+                <FormControl variant="standard">
                     <InputLabel id="demo-simple-select-standard-label">Mentor/Student</InputLabel>
                     <Select
                         labelId="demo-simple-select-standard-label"
@@ -135,9 +134,7 @@ const UserInformationForm = () => {
                 </div>
 
                 <p></p>
-                <TextField label="Password" placeholder="Password" type='password' />
-                <p></p>
-                <Button variant="contained" className="button">Sign Up</Button>
+                <Button variant="contained" className="button">Submit</Button>
             </Paper>
         </Grid>
 

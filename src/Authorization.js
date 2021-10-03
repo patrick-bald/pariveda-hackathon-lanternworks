@@ -41,3 +41,13 @@ export async function confirmUser(username,authCode) {
         console.log('error confirming user', error);
     }
 }
+
+export async function currentUserName()
+{
+    try {
+        const currentUser = await Auth.currentAuthenticatedUser();
+        return currentUser.username;
+   } catch (error) {
+       console.log('error getting current user', error);
+   }
+}
