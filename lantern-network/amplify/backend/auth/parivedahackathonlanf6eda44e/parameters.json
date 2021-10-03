@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "lanternnetwork56b9c502_identitypool_56b9c502",
+    "identityPoolName": "parivedahackathonlanf6eda44e_identitypool_f6eda44e",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "lanter56b9c502",
-    "userPoolName": "lanternnetwork56b9c502_userpool_56b9c502",
+    "resourceNameTruncated": "parivef6eda44e",
+    "userPoolName": "parivedahackathonlanf6eda44e_userpool_f6eda44e",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -29,10 +29,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "lanter56b9c502_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "parivef6eda44e_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "56b9c502",
-    "resourceName": "lanternnetwork56b9c502",
+    "sharedId": "f6eda44e",
+    "resourceName": "parivedahackathonlanf6eda44e",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -49,6 +49,5 @@
     "useDefault": "default",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
     "dependsOn": []
 }
