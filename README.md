@@ -77,3 +77,16 @@ With the amplify CLI installed, fetch the environment config from the amplify co
 If you're prompted for a username and password, access the Amplify console, go to the lantern project, click the backend environments tab, and log into the admin UI. this will log in the user automatically. Once this has been completed, finish the set up in the CLI
 
 This command will pull environment configurations from AWS and place them in a local amplify/ directory.
+
+## API Gateway Requests
+
+/user/{userid}
+- GET -> get user by user Id
+
+/mentors
+- POST -> create new mentor
+- GET -> get all mentors
+
+/mentees
+ - POST -> create new mentee
+ - GET -> get all mentees
