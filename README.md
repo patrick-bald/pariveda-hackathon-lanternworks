@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Amplify authentication 
+
+In order to run the project locally, a developer will require AWS access via a new IAM user, once the account is created, follow the guide here to set up the amplify CLI: [https://docs.amplify.aws/cli/start/install/#install-the-amplify-cli](https://docs.amplify.aws/cli/start/install/#install-the-amplify-cli)
+
+With the amplify CLI installed, fetch the environment config from the amplify console, currently the command is:  amplify pull --appId dwiosft55032w --envName staging
+If you're prompted for a username and password, access the Amplify console, go to the lantern project, click the backend environments tab, and log into the admin UI. this will log in the user automatically. Once this has been completed, finish the set up in the CLI
+
+This command will pull environment configurations from AWS and place them in a local amplify/ directory.
