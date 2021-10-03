@@ -8,20 +8,15 @@ import {
   AmplifySignOut
 } from '@aws-amplify/ui-react';
 import UserInformationForm from './components/UserInformationForm'; 
-import {currentUserName} from './Authorization'
-import {useEffect,useState} from 'React'; 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Admin from './pages/Admin'
+import Profile from './pages/Profile'
 
 const App = () => {
-	
-	const [currentUser, setCurrentUser] = useState(); 
-	const getCurrentUserName = async () => {
-		const currentUserName = await currentUserName(); 
-		if(currentUserName)
-		{
-			setCurrentUser(currentUserName);
-		}
-	}
-
   Amplify.configure(awsconfig)
     return(
 	<AmplifyAuthenticator>
@@ -29,7 +24,19 @@ const App = () => {
 		<AmplifySignUp headerText="Sign Up" slot="sign-up" />
 
 		<div>
-			{ currentUser ? <UserInformationForm /> : null}
+		<Router>
+			<Switch>
+				<Route path="/profile">
+					<Profile />
+				</Route>
+				<Route path="/admin">
+					<Admin />
+				</Route>
+				<Route path="/">
+					<UserInformationForm />
+				</Route>
+			</Switch>
+			</Router>
 			<AmplifySignOut />
 		</div>
 	</AmplifyAuthenticator>

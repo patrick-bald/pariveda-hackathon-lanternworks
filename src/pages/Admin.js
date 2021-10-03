@@ -88,9 +88,6 @@ const mentees = [
 
 
 export default function Admin() {
-
-
-
     const classes = useStyles();
     const [records, setRecords] = useState(payload);
     const [menteeForMentor, setMenteeForMentor] = useState([]);
