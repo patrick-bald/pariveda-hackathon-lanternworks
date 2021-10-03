@@ -1,0 +1,57 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lanternnetwork-dev-194106-authRole",
+      "UnauthRoleArn": "arn:aws:iam::396476580147:role/amplify-lanternnetwork-dev-194106-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::396476580147:role/amplify-lanternnetwork-dev-194106-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-lanternnetwork-dev-194106-deployment",
+      "UnauthRoleName": "amplify-lanternnetwork-dev-194106-unauthRole",
+      "StackName": "amplify-lanternnetwork-dev-194106",
+      "StackId": "arn:aws:cloudformation:us-east-2:396476580147:stack/amplify-lanternnetwork-dev-194106/37907720-23da-11ec-9ada-06b0957f8f4a",
+      "AmplifyAppId": "d38y2lo0euiju"
+    }
+  },
+  "auth": {
+    "lanternnetwork56b9c502": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "PREFERRED_USERNAME"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-lanternnetwork-dev-194106-deployment/amplify-cfn-templates/auth/lanternnetwork56b9c502-cloudformation-template.yml",
+        "logicalId": "authlanternnetwork56b9c502"
+      },
+      "lastPushTimeStamp": "2021-10-02T23:44:56.416Z",
+      "output": {
+        "UserPoolId": "us-east-2_04s9XrUAX",
+        "AppClientIDWeb": "3mh5qfq6h5glu8vfemgeicbhf",
+        "AppClientID": "6rupqjedecnshrgmdbm0nlde5i",
+        "IdentityPoolId": "us-east-2:ba38073e-84d5-4f6d-b992-5d1b774d1cae",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:396476580147:userpool/us-east-2_04s9XrUAX",
+        "IdentityPoolName": "lanternnetwork56b9c502_identitypool_56b9c502__dev",
+        "UserPoolName": "lanternnetwork56b9c502_userpool_56b9c502"
+      },
+      "lastPushDirHash": "FT9jV8LVLPsuCiXKgyiIPMI2k90="
+    }
+  }
+}
