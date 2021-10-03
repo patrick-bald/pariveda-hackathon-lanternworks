@@ -1,20 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-import {Box} from '@material-ui/core';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
-import {LogIn, SignUp, Profile} from './pages/Pages';
-import Footer from './Footer';
-function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path='/signup' render={(props) => <SignUp {...props}/>}/>
-        <Route path='/me' render={(props) => <Profile {...props}/>}/>
-        <Route path='/' render={(props) => <LogIn {...props}/>}/>
-      </Switch>
-      <Footer/>
-    </BrowserRouter>
-  );
-}
+import Amplify from 'aws-amplify' 
+import awsconfig from './aws-exports';
+import {
+	AmplifyAuthenticator,
+	AmplifySignIn,
+	AmplifySignUp,
+  AmplifySignOut
+} from '@aws-amplify/ui-react';
+import UserInformationForm from './components/UserInformationForm'; 
 
+const App = () => {
+  Amplify.configure(awsconfig)
+    return(
+	<AmplifyAuthenticator>
+		<AmplifySignIn headerText="Sign In" slot="sign-in" />
+		<AmplifySignUp headerText="Sign Up" slot="sign-up" />
+
+		<div>
+			<UserInformationForm />
+			<AmplifySignOut />
+		</div>
+	</AmplifyAuthenticator>
+    )
+};
 export default App;
