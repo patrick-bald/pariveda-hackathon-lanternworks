@@ -87,9 +87,10 @@ This command will pull environment configurations from AWS and place them in a l
 - POST -> create new user (mentor, mentee, admin)
 ```
 {
+    "id" : <username>,
     "type": <type>, /mentor/mentee/admin
     "email": <email>,
-    "fullName": <fullName,
+    "fullName": <fullName>,
     "pronouns": <pronouns>,
     "school": <school>,
     "experience": [],
