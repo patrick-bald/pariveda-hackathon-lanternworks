@@ -1,0 +1,57 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifye9f851ad04824-staging-125819-authRole",
+      "UnauthRoleArn": "arn:aws:iam::396476580147:role/amplify-amplifye9f851ad04824-staging-125819-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::396476580147:role/amplify-amplifye9f851ad04824-staging-125819-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplifye9f851ad04824-staging-125819-deployment",
+      "UnauthRoleName": "amplify-amplifye9f851ad04824-staging-125819-unauthRole",
+      "StackName": "amplify-amplifye9f851ad04824-staging-125819",
+      "StackId": "arn:aws:cloudformation:us-east-2:396476580147:stack/amplify-amplifye9f851ad04824-staging-125819/956c2d70-2449-11ec-9afd-0a2907c3c75a",
+      "AmplifyAppId": "dwiosft55032w"
+    }
+  },
+  "auth": {
+    "parivedahackathonlanf6eda44e": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "PREFERRED_USERNAME"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifye9f851ad04824-staging-125819-deployment/amplify-cfn-templates/auth/parivedahackathonlanf6eda44e-cloudformation-template.yml",
+        "logicalId": "authparivedahackathonlanf6eda44e"
+      },
+      "lastPushTimeStamp": "2021-10-03T13:44:49.798Z",
+      "output": {
+        "UserPoolId": "us-east-2_6BlbK49kd",
+        "AppClientIDWeb": "7u3pu6maeh11pq0b6fj7dk7dv1",
+        "AppClientID": "1k4jjfdk9qsmkd6d5v3mfgfu5g",
+        "IdentityPoolId": "us-east-2:58402208-d2cf-4ae0-ab3c-e8a4fa509f8f",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:396476580147:userpool/us-east-2_6BlbK49kd",
+        "IdentityPoolName": "parivedahackathonlanf6eda44e_identitypool_f6eda44e__staging",
+        "UserPoolName": "parivedahackathonlanf6eda44e_userpool_f6eda44e"
+      },
+      "lastPushDirHash": "c9COSAP9Ft3u3VTTiHlXKB/y35k="
+    }
+  }
+}

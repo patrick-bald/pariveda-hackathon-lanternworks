@@ -1,6 +1,6 @@
 {
   "auth": {
-    "lanternnetwork56b9c502": {
+    "parivedahackathonlanf6eda44e": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
