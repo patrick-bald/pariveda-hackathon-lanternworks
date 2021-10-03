@@ -1,19 +1,26 @@
 import './App.css';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
-import {LogIn, SignUp} from './pages/Pages';
 import Amplify from 'aws-amplify' 
 import awsconfig from './aws-exports';
+import {
+	AmplifyAuthenticator,
+	AmplifySignIn,
+	AmplifySignUp,
+  AmplifySignOut
+} from '@aws-amplify/ui-react';
+import UserInformationForm from './components/UserInformationForm'; 
 
-function App() {
+const App = () => {
   Amplify.configure(awsconfig)
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path='/signup' render={(props) => <SignUp {...props}/>}/>
-        <Route path='/' render={(props) => <LogIn {...props}/>}/>
-      </Switch>
-    </BrowserRouter>
-  );
-}
+    return(
+	<AmplifyAuthenticator>
+		<AmplifySignIn headerText="My Custom Sign In Header" slot="sign-in" />
+		<AmplifySignUp headerText="My Custom Sign Up Header" slot="sign-up" />
 
+		<div>
+			<UserInformationForm />
+			<AmplifySignOut />
+		</div>
+	</AmplifyAuthenticator>
+    )
+};
 export default App;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { Grid, Paper, TextField, Button, FormControl, MenuItem, Select, InputLabel, Checkbox, ListItemText, Box } from '@material-ui/core';
-import './SignUp.css';
+import './UserInformationForm.css';
 
 
-const SignUp = () => {
+const UserInputForm = () => {
     const [status, setStatus] = useState('');
     const [interest, setInterest] = useState([]);
     const [isMentor, setIsMentor] = useState(false);
@@ -58,8 +58,7 @@ const SignUp = () => {
     return (
         <Grid>
             <Paper elevation={10} className="inputSignup">
-                <h2> Sign Up</h2>
-
+                <h2>User Information</h2>
                 <FormControl variant="standard"   >
                     <InputLabel id="demo-simple-select-standard-label">Mentor/Student</InputLabel>
                     <Select
@@ -135,13 +134,11 @@ const SignUp = () => {
                 </div>
 
                 <p></p>
-                <TextField label="Password" placeholder="Password" type='password' />
-                <p></p>
-                <Button variant="contained" className="button">Sign Up</Button>
+                <Button variant="contained" className="button">Submit</Button>
             </Paper>
         </Grid>
 
     );
 }
 
-export default SignUp;
+export default UserInputForm;
