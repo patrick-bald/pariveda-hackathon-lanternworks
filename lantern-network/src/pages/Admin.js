@@ -71,15 +71,20 @@ const payload = [
 const mentees = [
     {
         "name" : "test",
-        "pronoun" : "they/them"
+        "pronoun" : "they/them",
+        "mentor" : "Cayla S"
     }
 ]
+
+
+
 export default function Admin() {
 
 
 
     const classes = useStyles();
     const [records, setRecords] = useState(payload);
+    const [menteeForMentor, setMenteeForMentor] = useState([]);
     const [filterFn, setFilterFn] = useState({ fn: items => { return items; } });
     const [open, setOpen] = React.useState(false);
     const {
@@ -99,6 +104,21 @@ export default function Admin() {
                     return items.filter(x => x.fullName.toLowerCase().includes(target.value))
             }
         })
+    }
+
+    const handledropDownMentee = (mentor) => {
+        let list = [];
+        console.log(mentees)
+        for (const mentee of mentees) {
+            console.log(mentee)
+            console.log(mentee[mentor])
+            if (mentee['mentor'] === mentor){
+                list.push(mentee);
+            }
+        }
+        setOpen(!open);
+        setMenteeForMentor(list);
+
     }
 
     return (
@@ -125,7 +145,7 @@ export default function Admin() {
                             recordsAfterPagingAndSorting().map(item =>
                             (<TableRow key={item.id}>
                                 <TableCell>{item.fullName}</TableCell>
-                                <TableCell onClick={() => setOpen(!open)}>Click</TableCell>
+                                <TableCell onClick={() => handledropDownMentee(item.fullName)}>Click</TableCell>
                                 <TableCell>{item.email}</TableCell>
                                 <TableCell>{item.occupation}</TableCell>
                                 <TableCell>{item.pronouns}</TableCell>
@@ -152,7 +172,7 @@ export default function Admin() {
                                         <TableBody>
 
                                             {
-                                                mentees.map(item =>
+                                                menteeForMentor.map(item =>
                                                 (<TableRow key={item.id}>
                                                     <TableCell>{item.name}</TableCell>
                                                     <TableCell>{item.pronoun}</TableCell>
