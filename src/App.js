@@ -7,7 +7,8 @@ import {
 	AmplifySignUp,
   AmplifySignOut
 } from '@aws-amplify/ui-react';
-import UserInformationForm from './components/UserInformationForm'; 
+// import UserInformationForm from './components/UserInformationForm'; 
+import Admin from './components/Admin'; 
 
 const App = () => {
   Amplify.configure(awsconfig)
@@ -17,7 +18,7 @@ const App = () => {
 		<AmplifySignUp headerText="Sign Up" slot="sign-up" />
 
 		<div>
-			<UserInformationForm />
+			<Admin />
 			<AmplifySignOut />
 		</div>
 	</AmplifyAuthenticator>
